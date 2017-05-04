@@ -9,11 +9,15 @@ stage('SomeStage') {
         echo "Just checked out, now there should be some local stuff:"
         bat ("dir")
         
-        if (clean) {
+        echo "Clean is ${clean}"
+        
+        // "clean" is a boolean param from Jenkins, but `if (clean)` passes even with the value "false"..
+        if (clean == true) {
+            echo "Cleaning as requested via parameter"
             deleteDir()
         }
         
-        echo "Just cleaned, now there should be nothing left:"
+        echo "Just passed the clean step. Workspace:"
         bat ("dir")
     }
 }
