@@ -12,7 +12,7 @@ stage('SomeStage') {
         echo "Clean is ${clean}"
         
         // "clean" is a boolean param from Jenkins, but `if (clean)` passes even with the value "false"..
-        if (clean == true) {
+        if (clean == "true") {
             echo "Cleaning as requested via parameter"
             deleteDir()
         }
