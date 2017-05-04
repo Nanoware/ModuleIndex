@@ -1,0 +1,8 @@
+stage('SomeStage') {
+    echo "Hello world from outside a node block!"
+
+    node(targetNode) {
+        echo "Hello again world, now from a node with a file system!!"
+        bat ("dir")
+    }
+}
