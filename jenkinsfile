@@ -4,5 +4,16 @@ stage('SomeStage') {
     node(targetNode) {
         echo "Hello again world, now from a node with a file system!!"
         bat ("dir")
+        
+        checkout scm
+        echo "Just checked out, now there should be some local stuff:"
+        bat ("dir")
+        
+        if (clean) {
+            deleteDir()
+        }
+        
+        echo "Just cleaned, now there should be nothing left:"
+        bat ("dir")
     }
 }
