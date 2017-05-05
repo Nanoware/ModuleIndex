@@ -1,0 +1,28 @@
+stage('SomeStage') {
+    echo "Hello world from outside a node block!"
+
+    node(targetNode) {
+        echo "Hello again world, now from a node with a file system!!"
+        bat ("dir")
+
+        checkout scm
+        echo "Just checked out, now there should be some local stuff:"
+        bat ("dir")
+
+        def packageJsonFileContents = readFile('package_develop.json')
+        def packageJson = new JsonSlurper().parseText(packageJsonFileContents)
+        def buildNum = packageJson.buildNumber
+        echo "Tried to read a json file. Did we get a build number? ${buildNum}"
+
+        echo "Clean is ${clean}"
+
+        // "clean" is a boolean param from Jenkins, but `if (clean)` passes even with the value "false"..
+        if (clean == "true") {
+            echo "Cleaning as requested via parameter"
+            deleteDir()
+        }
+
+        echo "Just passed the clean step. Workspace:"
+        bat ("dir")
+    }
+}

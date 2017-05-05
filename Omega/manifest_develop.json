@@ -1,0 +1,50 @@
+{
+    "artifactoryServer": "http://artifactory.terasology.org/artifactory/webapp",
+    "artifactRepo": "terasology-snapshot-local",
+    "gameVersion": "Alpha8Dev",
+	"description": "Contains the manifest for the develop line of the Omega distribution. If a module has changed its version or dependencies this should be updated",
+    "modules": [
+        {
+			"id" : "Oreons",
+			"version" : "0.2.1-SNAPSHOT",
+			"author" : "Maternal Mathes.Wenzel@googlemail.com",
+			"displayName" : "Oreons",
+			"description" : "Oreon Invasion for Terasology",
+			"dependencies" : [],
+			"isServerSideOnly" : false
+        },
+		{
+			"id" : "Portals",
+			"version" : "0.1.1-SNAPSHOT",
+			"author" : "Cervator, Esapetri",
+			"displayName" : "Portals",
+			"description" : "Allows portals to be created in the world, responsible for spawning assorted creatures",
+			"dependencies" : [
+					{
+						"id": "Spawning",
+						"minVersion" : "0.1.0"
+					},
+					{
+						"id" : "Oreons",
+						"minVersion" : "0.2.0"
+					}
+			],
+			"isServerSideOnly" : false
+		},
+		{
+			"id" : "Spawning",
+			"version" : "0.1.1-SNAPSHOT",
+			"author" : "Cervator, Esapetri",
+			"displayName" : "Spawning",
+			"description" : "Supports an assortment of ways to create Spawners for creatures and flag creatures as Spawnable",
+			"dependencies" :[
+				{
+					"id" : "Core",
+					"minVersion" : "1.0.0"
+				}
+			],
+			"isServerSideOnly" : false
+		}
+    ],
+    "buildNumber": "63"
+}

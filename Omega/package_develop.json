@@ -1,0 +1,27 @@
+{
+    "artifactoryServer": "http://artifactory.terasology.org/artifactory/webapp",
+    "artifactRepo": "terasology-snapshot-local",
+    "gameVersion": "Alpha8Dev",
+	"description": "Contains the packaging information for the develop line of the Omega distribution. Probably only updates when an Omega build runs (to detail what was in it)",
+    "modules": [
+        {
+            "name": "Oreons",
+            "artifact": "Oreons-'0.2.1-20151101.034435-3.jar",
+            "version": "0.2.1-SNAPSHOT",
+			"commit": "5afd3bb"
+		},
+        {
+            "name": "Portals",
+            "artifact": "Portals-0.1.1-20151101.034858-3.jar",
+            "version": "0.1.1-SNAPSHOT",
+			"commit": "862a88f"
+		},
+        {
+            "name": "Spawning",
+            "artifact": "Spawning-0.1.1-20151216.201543-4.jar",
+            "version": "0.1.1-SNAPSHOT",
+			"commit": "28a97ff"
+		}
+    ],
+    "buildNumber": "63"
+}
