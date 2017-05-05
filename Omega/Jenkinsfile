@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 stage('SomeStage') {
     echo "Hello world from outside a node block!"
 
