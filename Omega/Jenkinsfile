@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 stage('SomeStage') {
-    echo "Hello world from outside a node block!"
+    echo "Hello world from outside a node block for Omega!"
 
     node(targetNode) {
         echo "Hello again world, now from a node with a file system!!"
@@ -11,10 +11,14 @@ stage('SomeStage') {
         echo "Just checked out, now there should be some local stuff:"
         bat ("dir")
 
-        def packageJsonFileContents = readFile('package_develop.json')
-        def packageJson = new JsonSlurper().parseText(packageJsonFileContents)
-        def buildNum = packageJson.buildNumber
-        echo "Tried to read a json file. Did we get a build number? ${buildNum}"
+        dir("Omega") {
+            echo "Now saying hello from the Omega dir! SCIENCE!"
+            bat ("dir")
+            def packageJsonFileContents = readFile('package_develop.json')
+            def packageJson = new JsonSlurper().parseText(packageJsonFileContents)
+            def buildNum = packageJson.buildNumber
+            echo "Tried to read a json file. Did we get a build number? ${buildNum}"
+        }
 
         echo "Clean is ${clean}"
 
